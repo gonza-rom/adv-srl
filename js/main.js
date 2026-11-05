@@ -153,14 +153,14 @@
     const msg = [
       "*Solicitud de presupuesto — Web ADV SRL*",
       "",
-      `👤 Nombre: ${data.get("nombre")}`,
-      `📞 Teléfono: ${data.get("telefono")}`,
-      `📍 Localidad: ${data.get("localidad")}`,
-      `🗓️ Fecha estimada: ${fecha}`,
-      `🏗️ Servicio: ${servicios}`,
-      `🧱 Tipo de hormigón: ${data.get("tipo")}`,
-      `📦 Volumen estimado: ${data.get("m3")} m³`,
-      data.get("mensaje").trim() ? `📝 Detalle: ${data.get("mensaje").trim()}` : "",
+      `*Nombre:* ${data.get("nombre")}`,
+      `*Teléfono:* ${data.get("telefono")}`,
+      `*Localidad:* ${data.get("localidad")}`,
+      `*Fecha estimada:* ${fecha}`,
+      `*Servicio:* ${servicios}`,
+      `*Tipo de hormigón:* ${data.get("tipo")}`,
+      `*Volumen estimado:* ${data.get("m3")} m³`,
+      data.get("mensaje").trim() ? `*Detalle:* ${data.get("mensaje").trim()}` : "",
     ].filter(Boolean).join("\n");
 
     window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");

@@ -19,6 +19,18 @@
 </head>
 <body>
 
+  <!-- Iconos SVG reutilizables -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h13v10H1zM14 10h4l3 3v3h-7"/><circle cx="5.5" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></symbol>
+    <symbol id="i-tools" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.2-.4.7-1.4a.5.5 0 000-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.1-1.3c0-.1-.2-.2-.5-.3z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></symbol>
+    <symbol id="i-facebook" viewBox="0 0 24 24" fill="currentColor"><path d="M14 8.5V6.8c0-.8.2-1.3 1.4-1.3H17V2.2A21 21 0 0014.6 2C12.2 2 10.6 3.5 10.6 6.2v2.3H8v3.3h2.6V22H14V11.8h2.7l.4-3.3z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .4 1.9.7 2.8a2 2 0 01-.5 2.1L8 9.9a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.9.3 1.8.6 2.8.7a2 2 0 011.7 2z"/></symbol>
+  </svg>
+
   <!-- Preloader -->
   <div class="preloader" aria-hidden="true">
     <div class="preloader__logo">ADV<span>srl</span></div>
@@ -65,7 +77,12 @@
           <span class="line"><span>la <em>solidez</em> que</span></span>
           <span class="line"><span>tu obra necesita.</span></span>
         </h1>
-        <p class="hero__text">Compromiso, precisión y tecnología para garantizar resultados duraderos en cada proyecto.</p>
+        <p class="hero__text">Resistencia y calidad para tus obras. Compromiso, precisión y tecnología para garantizar resultados duraderos.</p>
+        <ul class="hero__features">
+          <li><svg class="ico"><use href="#i-truck"/></svg>Entregas puntuales</li>
+          <li><svg class="ico"><use href="#i-tools"/></svg>Soluciones a medida</li>
+          <li><svg class="ico"><use href="#i-shield"/></svg>Respaldo de Loma Negra</li>
+        </ul>
         <div class="hero__actions">
           <a href="#presupuesto" class="btn btn--yellow">Cotizá tu proyecto <span class="arrow">→</span></a>
           <a href="#servicios" class="btn btn--ghost">Ver servicios</a>
@@ -86,14 +103,14 @@
     <!-- Cinta animada -->
     <div class="marquee" aria-hidden="true">
       <div class="marquee__track">
-        <span>Hormigón elaborado</span><b>✦</b>
-        <span>Servicio de bombeo</span><b>✦</b>
-        <span>Control de laboratorio</span><b>✦</b>
-        <span>Asesoramiento técnico</span><b>✦</b>
-        <span>Hormigón elaborado</span><b>✦</b>
-        <span>Servicio de bombeo</span><b>✦</b>
-        <span>Control de laboratorio</span><b>✦</b>
-        <span>Asesoramiento técnico</span><b>✦</b>
+        <span>Hormigón elaborado</span><b class="sep"></b>
+        <span>Servicio de bombeo</span><b class="sep"></b>
+        <span>Control de laboratorio</span><b class="sep"></b>
+        <span>Asesoramiento técnico</span><b class="sep"></b>
+        <span>Hormigón elaborado</span><b class="sep"></b>
+        <span>Servicio de bombeo</span><b class="sep"></b>
+        <span>Control de laboratorio</span><b class="sep"></b>
+        <span>Asesoramiento técnico</span><b class="sep"></b>
       </div>
     </div>
 
@@ -115,6 +132,11 @@
           <h2 class="title reveal">Solidez, precisión y <mark>confianza</mark> en cada metro cúbico.</h2>
           <p class="reveal">En <strong>ADV SRL</strong> producimos y entregamos hormigón elaborado con control de calidad en cada etapa. Acompañamos a constructoras, profesionales y particulares desde la elección de la mezcla hasta la colocación en obra.</p>
           <p class="reveal">Trabajamos con flota propia, equipos de bombeo y un laboratorio que ensaya cada mezcla para que tu obra cumpla con los estándares requeridos.</p>
+
+          <div class="about__facts reveal">
+            <div><svg class="ico"><use href="#i-pin"/></svg><span><small>Ubicación</small>San Fernando del Valle de Catamarca</span></div>
+            <div><svg class="ico"><use href="#i-shield"/></svg><span><small>Respaldo</small>Con el respaldo de Loma Negra</span></div>
+          </div>
 
           <ul class="values">
             <li class="reveal"><span class="values__n">01</span><div><h3>Compromiso</h3><p>Cumplimos plazos y acompañamos cada colado.</p></div></li>
@@ -254,7 +276,7 @@
     <section class="cta">
       <div class="container cta__inner">
         <h2 class="reveal">En ADV SRL, construimos con la solidez que tu obra necesita.</h2>
-        <a href="#presupuesto" class="btn btn--dark reveal">📲 Cotizá tu próximo proyecto</a>
+        <a href="#presupuesto" class="btn btn--dark reveal"><svg class="ico"><use href="#i-whatsapp"/></svg>Cotizá tu próximo proyecto</a>
       </div>
     </section>
 
@@ -342,39 +364,31 @@
 
         <div class="contact__grid">
           <a class="contact__card reveal" href="https://wa.me/5493834761827" target="_blank" rel="noopener">
-            <span class="contact__icon">
-              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm0 18.2a8.2 8.2 0 01-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1112 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 01-3.3-2.9c-.3-.4.2-.4.7-1.4a.5.5 0 000-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 00-.7.3 3 3 0 00-.9 2.2 5.2 5.2 0 001.1 2.7 11.8 11.8 0 004.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 001.8-1.3 2.2 2.2 0 00.1-1.3c0-.1-.2-.2-.5-.3z"/></svg>
-            </span>
-            <small>WhatsApp</small>
+            <span class="contact__icon"><svg class="ico"><use href="#i-whatsapp"/></svg></span>
+            <small>WhatsApp / Teléfono</small>
             <strong>3834 76-1827</strong>
           </a>
-          <a class="contact__card reveal" data-delay="100" href="tel:+5493834761827">
-            <span class="contact__icon">
-              <svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 006.6 6.6l2.2-2.2a1 1 0 011-.2 11.4 11.4 0 003.6.6 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.4 11.4 0 00.6 3.6 1 1 0 01-.3 1z"/></svg>
-            </span>
-            <small>Teléfono</small>
-            <strong>3834 76-1827</strong>
-          </a>
-          <a class="contact__card reveal" data-delay="200" href="mailto:contacto@advsrl.com.ar">
-            <span class="contact__icon">
-              <svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5-8-5V6l8 5 8-5z"/></svg>
-            </span>
-            <small>Email</small>
-            <strong>contacto@advsrl.com.ar</strong>
-          </a>
-          <a class="contact__card reveal" data-delay="300" href="https://www.instagram.com/" target="_blank" rel="noopener">
-            <span class="contact__icon">
-              <svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 105 5 5 5 0 00-5-5zm0 8.2a3.2 3.2 0 113.2-3.2 3.2 3.2 0 01-3.2 3.2zM17.3 5.5a1.2 1.2 0 101.2 1.2 1.2 1.2 0 00-1.2-1.2zM21.9 7a5.8 5.8 0 00-1.6-4.1A5.8 5.8 0 0016.2 1.3C14.6 1.2 9.4 1.2 7.8 1.3a5.8 5.8 0 00-4.1 1.6A5.8 5.8 0 002.1 7c-.1 1.6-.1 6.8 0 8.4a5.8 5.8 0 001.6 4.1 5.8 5.8 0 004.1 1.6c1.6.1 6.8.1 8.4 0a5.8 5.8 0 004.1-1.6 5.8 5.8 0 001.6-4.1c.1-1.6.1-6.8 0-8.4zM19.8 17.4a3.3 3.3 0 01-1.9 1.9c-1.3.5-4.4.4-5.9.4s-4.6.1-5.9-.4a3.3 3.3 0 01-1.9-1.9c-.5-1.3-.4-4.4-.4-5.9s-.1-4.6.4-5.9a3.3 3.3 0 011.9-1.9c1.3-.5 4.4-.4 5.9-.4s4.6-.1 5.9.4a3.3 3.3 0 011.9 1.9c.5 1.3.4 4.4.4 5.9s.1 4.6-.4 5.9z"/></svg>
-            </span>
+          <a class="contact__card reveal" data-delay="100" href="https://www.instagram.com/adv.servicios/" target="_blank" rel="noopener">
+            <span class="contact__icon"><svg class="ico"><use href="#i-instagram"/></svg></span>
             <small>Instagram</small>
-            <strong>@advsrl</strong>
+            <strong>@adv.servicios</strong>
+          </a>
+          <a class="contact__card reveal" data-delay="200" href="https://www.facebook.com/profile.php?id=61582815957772" target="_blank" rel="noopener">
+            <span class="contact__icon"><svg class="ico"><use href="#i-facebook"/></svg></span>
+            <small>Facebook</small>
+            <strong>ADV Servicios</strong>
+          </a>
+          <a class="contact__card reveal" data-delay="300" href="https://www.google.com/maps/search/?api=1&amp;query=Avellaneda+y+Tula+821,+San+Fernando+del+Valle+de+Catamarca" target="_blank" rel="noopener">
+            <span class="contact__icon"><svg class="ico"><use href="#i-pin"/></svg></span>
+            <small>Dirección</small>
+            <strong>Avellaneda y Tula 821, San Fernando del Valle de Catamarca (4700)</strong>
           </a>
         </div>
 
         <div class="contact__map reveal">
           <iframe
-            title="Ubicación ADV SRL"
-            src="https://www.google.com/maps?q=San+Fernando+del+Valle+de+Catamarca&output=embed"
+            title="Ubicación ADV SRL — Avellaneda y Tula 821, Catamarca"
+            src="https://www.google.com/maps?q=Avellaneda+y+Tula+821,+San+Fernando+del+Valle+de+Catamarca&amp;output=embed"
             loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
@@ -386,7 +400,13 @@
     <div class="container footer__inner">
       <div>
         <a href="#inicio" class="logo logo--lg">ADV<span>srl</span></a>
-        <p>Hormigón elaborado · Bombeo · Laboratorio · Asesoramiento técnico</p>
+        <p>Empresa de construcción. Resistencia y calidad para tus obras.</p>
+        <p class="footer__addr"><svg class="ico"><use href="#i-pin"/></svg>Avellaneda y Tula 821, San Fernando del Valle de Catamarca (4700)</p>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/adv.servicios/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico"><use href="#i-instagram"/></svg></a>
+          <a href="https://www.facebook.com/profile.php?id=61582815957772" target="_blank" rel="noopener" aria-label="Facebook"><svg class="ico"><use href="#i-facebook"/></svg></a>
+          <a href="https://wa.me/5493834761827" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ico"><use href="#i-whatsapp"/></svg></a>
+        </div>
       </div>
       <nav class="footer__nav" aria-label="Pie de página">
         <a href="#nosotros">Nosotros</a>
