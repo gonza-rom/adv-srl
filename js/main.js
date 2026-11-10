@@ -1,7 +1,7 @@
 /* ADV SRL — interacciones */
 (() => {
   // Número de WhatsApp (formato internacional sin "+" ni espacios)
-  const WHATSAPP = "5493834761827";
+  const WHATSAPP = "5493834603994";
 
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
@@ -98,6 +98,52 @@
   );
   $$(".reveal").forEach((el) => revealObserver.observe(el));
 
+  /* ---------- Contadores ---------- */
+  const countObserver = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const end = parseInt(el.dataset.count, 10);
+        obs.unobserve(el);
+        if (reduceMotion) { el.textContent = end; return; }
+        const start = performance.now();
+        const dur = 1600;
+        const tick = (now) => {
+          const p = Math.min((now - start) / dur, 1);
+          el.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    },
+    { threshold: 0.6 }
+  );
+  $$("[data-count]").forEach((el) => countObserver.observe(el));
+
+  /* ---------- Pestañas flota / equipos ---------- */
+  const tabBtns = $$(".tabs__btn");
+  const selectTab = (btn) => {
+    tabBtns.forEach((b) => {
+      const on = b === btn;
+      b.classList.toggle("is-active", on);
+      b.setAttribute("aria-selected", on);
+      b.tabIndex = on ? 0 : -1;
+      const panel = $(`#${b.getAttribute("aria-controls")}`);
+      panel.hidden = !on;
+      panel.classList.toggle("is-active", on);
+    });
+  };
+  tabBtns.forEach((btn, i) => {
+    btn.addEventListener("click", () => selectTab(btn));
+    btn.addEventListener("keydown", (e) => {
+      if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+      const next = tabBtns[(i + (e.key === "ArrowRight" ? 1 : -1) + tabBtns.length) % tabBtns.length];
+      selectTab(next);
+      next.focus();
+    });
+  });
+
   /* ---------- Parallax suave ---------- */
   const parallaxEls = $$(".parallax");
   const onParallax = () => {
@@ -124,9 +170,6 @@
   /* ---------- Formulario de presupuesto → WhatsApp ---------- */
   const form = $("#quoteForm");
   const note = $("#formNote");
-  const m3 = $("#m3");
-  const m3Value = $("#m3Value");
-  m3.addEventListener("input", () => (m3Value.textContent = m3.value));
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -140,7 +183,7 @@
     });
 
     if (!valid) {
-      note.textContent = "Completá los campos obligatorios (*).";
+      note.textContent = "Complete los campos obligatorios (*).";
       note.className = "form__note is-error";
       return;
     }
@@ -151,20 +194,20 @@
       : "A definir";
 
     const msg = [
-      "*Solicitud de presupuesto — Web ADV SRL*",
+      "*Solicitud de cotización — Web ADV SRL*",
       "",
       `*Nombre:* ${data.get("nombre")}`,
+      data.get("empresa").trim() ? `*Empresa / proyecto:* ${data.get("empresa").trim()}` : "",
       `*Teléfono:* ${data.get("telefono")}`,
-      `*Localidad:* ${data.get("localidad")}`,
-      `*Fecha estimada:* ${fecha}`,
+      `*Destino / sitio:* ${data.get("destino")}`,
       `*Servicio:* ${servicios}`,
-      `*Tipo de hormigón:* ${data.get("tipo")}`,
-      `*Volumen estimado:* ${data.get("m3")} m³`,
+      `*Carga / equipo:* ${data.get("tipo")}`,
+      `*Inicio estimado:* ${fecha}`,
       data.get("mensaje").trim() ? `*Detalle:* ${data.get("mensaje").trim()}` : "",
     ].filter(Boolean).join("\n");
 
     window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
-    note.textContent = "¡Listo! Se abrió WhatsApp con tu consulta. Solo tenés que enviarla.";
+    note.textContent = "¡Listo! Se abrió WhatsApp con su consulta. Solo resta enviarla.";
     note.className = "form__note is-ok";
   });
 
